@@ -7,13 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2087DF1B5D75E2001DD96E /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087DE1B5D75E2001DD96E /* ExploreViewController.m */; };
+		1C2087E21B5D79D5001DD96E /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087E11B5D79D5001DD96E /* PlayerViewController.m */; };
+		1C2087EC1B5D7D52001DD96E /* Ecstatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087EB1B5D7D52001DD96E /* Ecstatic.m */; };
+		1C2087F91B5D7EF0001DD96E /* SocketAckMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087EE1B5D7EF0001DD96E /* SocketAckMap.swift */; };
+		1C2087FA1B5D7EF0001DD96E /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087EF1B5D7EF0001DD96E /* SocketAnyEvent.swift */; };
+		1C2087FB1B5D7EF0001DD96E /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F01B5D7EF0001DD96E /* SocketEngine.swift */; };
+		1C2087FC1B5D7EF0001DD96E /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F11B5D7EF0001DD96E /* SocketEngineClient.swift */; };
+		1C2087FD1B5D7EF0001DD96E /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F21B5D7EF0001DD96E /* SocketEventHandler.swift */; };
+		1C2087FE1B5D7EF0001DD96E /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F31B5D7EF0001DD96E /* SocketFixUTF8.swift */; };
+		1C2087FF1B5D7EF0001DD96E /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F41B5D7EF0001DD96E /* SocketIOClient.swift */; };
+		1C2088001B5D7EF0001DD96E /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F51B5D7EF0001DD96E /* SocketPacket.swift */; };
+		1C2088011B5D7EF0001DD96E /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F61B5D7EF0001DD96E /* SocketParser.swift */; };
+		1C2088021B5D7EF0001DD96E /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F71B5D7EF0001DD96E /* SwiftRegex.swift */; };
+		1C2088031B5D7EF0001DD96E /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F81B5D7EF0001DD96E /* WebSocket.swift */; };
+		1C2088061B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2088051B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m */; };
+		1CA7A7081B6673CA00660AA8 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7051B6673CA00660AA8 /* SDSAPI.m */; };
+		1CA7A7091B6673CA00660AA8 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7071B6673CA00660AA8 /* SoundCloudAPI.m */; };
+		1CA7A70D1B66751B00660AA8 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A70C1B66751B00660AA8 /* MediaItem.m */; };
+		1CA7A7111B66761700660AA8 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7101B66761700660AA8 /* Room.m */; };
+		1CA7A7151B66764800660AA8 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7141B66764800660AA8 /* Playlist.m */; };
+		1CA7A71A1B6679CC00660AA8 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7191B6679CC00660AA8 /* soundCloudMediaPickerViewController.m */; };
+		1CA7A7211B667A4B00660AA8 /* GFXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7201B667A4B00660AA8 /* GFXUtils.m */; };
+		1CA7A7241B667A5700660AA8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7231B667A5700660AA8 /* Utils.m */; };
+		1CA7A7271B667BBE00660AA8 /* RadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7261B667BBE00660AA8 /* RadialGradientLayer.m */; };
+		1CA7A72B1B667C1A00660AA8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A72A1B667C1A00660AA8 /* Player.m */; };
+		1CA7A72E1B667C4A00660AA8 /* MWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A72D1B667C4A00660AA8 /* MWLogging.m */; };
+		1CA7A7311B669DE300660AA8 /* MediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7301B669DE300660AA8 /* MediaPickerViewController.m */; };
+		1CA7A7341B66A76E00660AA8 /* MediaItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7331B66A76E00660AA8 /* MediaItemTableViewCell.m */; };
+		1CA7A7381B66B4A100660AA8 /* PlaylistViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7371B66B4A100660AA8 /* PlaylistViewControllerViewController.m */; };
+		1CEBBC371B5807BC00733265 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCAAE71B5800F4007A2DE8 /* HomeViewController.m */; };
+		1CEBBC3A1B58086A00733265 /* UserProfile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CEBBC391B58086A00733265 /* UserProfile.jpg */; };
 		1CFCAABC1B57FA3F007A2DE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCAABB1B57FA3F007A2DE8 /* main.m */; };
 		1CFCAABF1B57FA40007A2DE8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCAABE1B57FA40007A2DE8 /* AppDelegate.m */; };
-		1CFCAAC21B57FA40007A2DE8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCAAC11B57FA40007A2DE8 /* ViewController.m */; };
 		1CFCAAC51B57FA40007A2DE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CFCAAC31B57FA40007A2DE8 /* Main.storyboard */; };
 		1CFCAAC71B57FA40007A2DE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CFCAAC61B57FA40007A2DE8 /* Images.xcassets */; };
 		1CFCAACA1B57FA40007A2DE8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CFCAAC81B57FA40007A2DE8 /* LaunchScreen.xib */; };
 		1CFCAAD61B57FA40007A2DE8 /* EcstaticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCAAD51B57FA40007A2DE8 /* EcstaticTests.m */; };
+		1CFCAAE01B57FC4A007A2DE8 /* UserProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CFCAADF1B57FC4A007A2DE8 /* UserProfile.png */; };
+		1CFCAAE81B5800F4007A2DE8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFCAAE71B5800F4007A2DE8 /* HomeViewController.m */; };
+		B6CF7DCAF973139D775426E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EF612AFF608BC4D2DF5537 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +60,74 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C2087DD1B5D75E2001DD96E /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
+		1C2087DE1B5D75E2001DD96E /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
+		1C2087E01B5D79D5001DD96E /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		1C2087E11B5D79D5001DD96E /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		1C2087EA1B5D7D52001DD96E /* Ecstatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ecstatic.h; sourceTree = "<group>"; };
+		1C2087EB1B5D7D52001DD96E /* Ecstatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ecstatic.m; sourceTree = "<group>"; };
+		1C2087ED1B5D7EF0001DD96E /* Ecstatic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ecstatic-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C2087EE1B5D7EF0001DD96E /* SocketAckMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckMap.swift; sourceTree = "<group>"; };
+		1C2087EF1B5D7EF0001DD96E /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAnyEvent.swift; sourceTree = "<group>"; };
+		1C2087F01B5D7EF0001DD96E /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
+		1C2087F11B5D7EF0001DD96E /* SocketEngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineClient.swift; sourceTree = "<group>"; };
+		1C2087F21B5D7EF0001DD96E /* SocketEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEventHandler.swift; sourceTree = "<group>"; };
+		1C2087F31B5D7EF0001DD96E /* SocketFixUTF8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketFixUTF8.swift; sourceTree = "<group>"; };
+		1C2087F41B5D7EF0001DD96E /* SocketIOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClient.swift; sourceTree = "<group>"; };
+		1C2087F51B5D7EF0001DD96E /* SocketPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketPacket.swift; sourceTree = "<group>"; };
+		1C2087F61B5D7EF0001DD96E /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
+		1C2087F71B5D7EF0001DD96E /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		1C2087F81B5D7EF0001DD96E /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		1C2088041B5D84EB001DD96E /* RoomsAroundMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsAroundMeTableViewCell.h; sourceTree = "<group>"; };
+		1C2088051B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsAroundMeTableViewCell.m; sourceTree = "<group>"; };
+		1CA7A7041B6673CA00660AA8 /* SDSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSAPI.h; sourceTree = "<group>"; };
+		1CA7A7051B6673CA00660AA8 /* SDSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSAPI.m; sourceTree = "<group>"; };
+		1CA7A7061B6673CA00660AA8 /* SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudAPI.h; sourceTree = "<group>"; };
+		1CA7A7071B6673CA00660AA8 /* SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudAPI.m; sourceTree = "<group>"; };
+		1CA7A70B1B66751B00660AA8 /* MediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItem.h; sourceTree = "<group>"; };
+		1CA7A70C1B66751B00660AA8 /* MediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItem.m; sourceTree = "<group>"; };
+		1CA7A70F1B66761700660AA8 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		1CA7A7101B66761700660AA8 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		1CA7A7131B66764800660AA8 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
+		1CA7A7141B66764800660AA8 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
+		1CA7A7161B6678B100660AA8 /* MusicServiceAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicServiceAPI.h; sourceTree = "<group>"; };
+		1CA7A7181B6679CC00660AA8 /* soundCloudMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundCloudMediaPickerViewController.h; sourceTree = "<group>"; };
+		1CA7A7191B6679CC00660AA8 /* soundCloudMediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soundCloudMediaPickerViewController.m; sourceTree = "<group>"; };
+		1CA7A71F1B667A4B00660AA8 /* GFXUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXUtils.h; sourceTree = "<group>"; };
+		1CA7A7201B667A4B00660AA8 /* GFXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFXUtils.m; sourceTree = "<group>"; };
+		1CA7A7221B667A5700660AA8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		1CA7A7231B667A5700660AA8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		1CA7A7251B667BBE00660AA8 /* RadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadialGradientLayer.h; sourceTree = "<group>"; };
+		1CA7A7261B667BBE00660AA8 /* RadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadialGradientLayer.m; sourceTree = "<group>"; };
+		1CA7A7291B667C1A00660AA8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		1CA7A72A1B667C1A00660AA8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		1CA7A72C1B667C4A00660AA8 /* MWLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWLogging.h; sourceTree = "<group>"; };
+		1CA7A72D1B667C4A00660AA8 /* MWLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWLogging.m; sourceTree = "<group>"; };
+		1CA7A72F1B669DE300660AA8 /* MediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerViewController.h; sourceTree = "<group>"; };
+		1CA7A7301B669DE300660AA8 /* MediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerViewController.m; sourceTree = "<group>"; };
+		1CA7A7321B66A76E00660AA8 /* MediaItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemTableViewCell.h; sourceTree = "<group>"; };
+		1CA7A7331B66A76E00660AA8 /* MediaItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemTableViewCell.m; sourceTree = "<group>"; };
+		1CA7A7351B66AB8600660AA8 /* PlayerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerDelegate.h; sourceTree = "<group>"; };
+		1CA7A7361B66B4A100660AA8 /* PlaylistViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistViewControllerViewController.h; sourceTree = "<group>"; };
+		1CA7A7371B66B4A100660AA8 /* PlaylistViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewControllerViewController.m; sourceTree = "<group>"; };
+		1CEBBC391B58086A00733265 /* UserProfile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = UserProfile.jpg; path = Assets/UserProfile.jpg; sourceTree = "<group>"; };
 		1CFCAAB61B57FA3F007A2DE8 /* Ecstatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecstatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CFCAABA1B57FA3F007A2DE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CFCAABB1B57FA3F007A2DE8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CFCAABD1B57FA40007A2DE8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CFCAABE1B57FA40007A2DE8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1CFCAAC01B57FA40007A2DE8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1CFCAAC11B57FA40007A2DE8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1CFCAAC41B57FA40007A2DE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CFCAAC61B57FA40007A2DE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CFCAAC91B57FA40007A2DE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1CFCAACF1B57FA40007A2DE8 /* EcstaticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcstaticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CFCAAD41B57FA40007A2DE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CFCAAD51B57FA40007A2DE8 /* EcstaticTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EcstaticTests.m; sourceTree = "<group>"; };
+		1CFCAADF1B57FC4A007A2DE8 /* UserProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserProfile.png; sourceTree = "<group>"; };
+		1CFCAAE61B5800F4007A2DE8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1CFCAAE71B5800F4007A2DE8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		39D41BE654D41C34E3F44C18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		52EF612AFF608BC4D2DF5537 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB782591FF943D8F4FFC436 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CF7DCAF973139D775426E4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +149,127 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19A4B4766F25C4124AEBD37C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39D41BE654D41C34E3F44C18 /* Pods.debug.xcconfig */,
+				CCB782591FF943D8F4FFC436 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1C2087E31B5D7BE8001DD96E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1C2087EE1B5D7EF0001DD96E /* SocketAckMap.swift */,
+				1CA7A7161B6678B100660AA8 /* MusicServiceAPI.h */,
+				1C2087EF1B5D7EF0001DD96E /* SocketAnyEvent.swift */,
+				1C2087F01B5D7EF0001DD96E /* SocketEngine.swift */,
+				1C2087F11B5D7EF0001DD96E /* SocketEngineClient.swift */,
+				1C2087F21B5D7EF0001DD96E /* SocketEventHandler.swift */,
+				1C2087F31B5D7EF0001DD96E /* SocketFixUTF8.swift */,
+				1C2087F41B5D7EF0001DD96E /* SocketIOClient.swift */,
+				1C2087F51B5D7EF0001DD96E /* SocketPacket.swift */,
+				1C2087F61B5D7EF0001DD96E /* SocketParser.swift */,
+				1C2087F71B5D7EF0001DD96E /* SwiftRegex.swift */,
+				1C2087F81B5D7EF0001DD96E /* WebSocket.swift */,
+				1CA7A7041B6673CA00660AA8 /* SDSAPI.h */,
+				1CA7A7051B6673CA00660AA8 /* SDSAPI.m */,
+				1CA7A7061B6673CA00660AA8 /* SoundCloudAPI.h */,
+				1CA7A7071B6673CA00660AA8 /* SoundCloudAPI.m */,
+				1C2087EA1B5D7D52001DD96E /* Ecstatic.h */,
+				1C2087EB1B5D7D52001DD96E /* Ecstatic.m */,
+				1C2087ED1B5D7EF0001DD96E /* Ecstatic-Bridging-Header.h */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		1CA7A70A1B66750300660AA8 /* MediaItem */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7A70B1B66751B00660AA8 /* MediaItem.h */,
+				1CA7A70C1B66751B00660AA8 /* MediaItem.m */,
+				1CA7A7321B66A76E00660AA8 /* MediaItemTableViewCell.h */,
+				1CA7A7331B66A76E00660AA8 /* MediaItemTableViewCell.m */,
+			);
+			name = MediaItem;
+			sourceTree = "<group>";
+		};
+		1CA7A70E1B6675FE00660AA8 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7A70F1B66761700660AA8 /* Room.h */,
+				1CA7A7101B66761700660AA8 /* Room.m */,
+			);
+			name = Room;
+			sourceTree = "<group>";
+		};
+		1CA7A7121B66762F00660AA8 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7A7131B66764800660AA8 /* Playlist.h */,
+				1CA7A7141B66764800660AA8 /* Playlist.m */,
+				1CA7A7361B66B4A100660AA8 /* PlaylistViewControllerViewController.h */,
+				1CA7A7371B66B4A100660AA8 /* PlaylistViewControllerViewController.m */,
+			);
+			name = Playlist;
+			sourceTree = "<group>";
+		};
+		1CA7A7171B66797400660AA8 /* MediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7A7181B6679CC00660AA8 /* soundCloudMediaPickerViewController.h */,
+				1CA7A7191B6679CC00660AA8 /* soundCloudMediaPickerViewController.m */,
+				1CA7A72F1B669DE300660AA8 /* MediaPickerViewController.h */,
+				1CA7A7301B669DE300660AA8 /* MediaPickerViewController.m */,
+			);
+			name = MediaPicker;
+			sourceTree = "<group>";
+		};
+		1CA7A71B1B6679F300660AA8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7A72C1B667C4A00660AA8 /* MWLogging.h */,
+				1CA7A72D1B667C4A00660AA8 /* MWLogging.m */,
+				1CA7A7251B667BBE00660AA8 /* RadialGradientLayer.h */,
+				1CA7A7261B667BBE00660AA8 /* RadialGradientLayer.m */,
+				1CA7A7221B667A5700660AA8 /* Utils.h */,
+				1CA7A7231B667A5700660AA8 /* Utils.m */,
+				1CA7A71F1B667A4B00660AA8 /* GFXUtils.h */,
+				1CA7A7201B667A4B00660AA8 /* GFXUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1CA7A7281B667C0A00660AA8 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				1C2087E01B5D79D5001DD96E /* PlayerViewController.h */,
+				1C2087E11B5D79D5001DD96E /* PlayerViewController.m */,
+				1CA7A7351B66AB8600660AA8 /* PlayerDelegate.h */,
+				1CA7A7291B667C1A00660AA8 /* Player.h */,
+				1CA7A72A1B667C1A00660AA8 /* Player.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		1CEBBC381B58085D00733265 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1CEBBC391B58086A00733265 /* UserProfile.jpg */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		1CFCAAAD1B57FA3F007A2DE8 = {
 			isa = PBXGroup;
 			children = (
+				1CFCAAE11B580091007A2DE8 /* Source */,
 				1CFCAAB81B57FA3F007A2DE8 /* Ecstatic */,
 				1CFCAAD21B57FA40007A2DE8 /* EcstaticTests */,
 				1CFCAAB71B57FA3F007A2DE8 /* Products */,
+				19A4B4766F25C4124AEBD37C /* Pods */,
+				77638CBA0870AEEE1EBAC334 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +285,9 @@
 		1CFCAAB81B57FA3F007A2DE8 /* Ecstatic */ = {
 			isa = PBXGroup;
 			children = (
+				1CEBBC381B58085D00733265 /* Assets */,
 				1CFCAABD1B57FA40007A2DE8 /* AppDelegate.h */,
 				1CFCAABE1B57FA40007A2DE8 /* AppDelegate.m */,
-				1CFCAAC01B57FA40007A2DE8 /* ViewController.h */,
-				1CFCAAC11B57FA40007A2DE8 /* ViewController.m */,
 				1CFCAAC31B57FA40007A2DE8 /* Main.storyboard */,
 				1CFCAAC61B57FA40007A2DE8 /* Images.xcassets */,
 				1CFCAAC81B57FA40007A2DE8 /* LaunchScreen.xib */,
@@ -114,9 +317,54 @@
 		1CFCAAD31B57FA40007A2DE8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1CFCAADF1B57FC4A007A2DE8 /* UserProfile.png */,
 				1CFCAAD41B57FA40007A2DE8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CFCAAE11B580091007A2DE8 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1C2087E31B5D7BE8001DD96E /* API */,
+				1CA7A7281B667C0A00660AA8 /* Player */,
+				1CA7A71B1B6679F300660AA8 /* Utils */,
+				1CA7A7171B66797400660AA8 /* MediaPicker */,
+				1CA7A7121B66762F00660AA8 /* Playlist */,
+				1CA7A70E1B6675FE00660AA8 /* Room */,
+				1CA7A70A1B66750300660AA8 /* MediaItem */,
+				1CFCAAE41B5800BB007A2DE8 /* Home */,
+				1CFCAAE21B5800A6007A2DE8 /* Channels */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1CFCAAE21B5800A6007A2DE8 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				1C2087DD1B5D75E2001DD96E /* ExploreViewController.h */,
+				1C2087DE1B5D75E2001DD96E /* ExploreViewController.m */,
+				1C2088041B5D84EB001DD96E /* RoomsAroundMeTableViewCell.h */,
+				1C2088051B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m */,
+			);
+			name = Channels;
+			sourceTree = "<group>";
+		};
+		1CFCAAE41B5800BB007A2DE8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1CFCAAE61B5800F4007A2DE8 /* HomeViewController.h */,
+				1CFCAAE71B5800F4007A2DE8 /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		77638CBA0870AEEE1EBAC334 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52EF612AFF608BC4D2DF5537 /* libPods.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,9 +374,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CFCAAD91B57FA40007A2DE8 /* Build configuration list for PBXNativeTarget "Ecstatic" */;
 			buildPhases = (
+				7EAA8FBA768BA3D00BD6545A /* Check Pods Manifest.lock */,
 				1CFCAAB21B57FA3F007A2DE8 /* Sources */,
 				1CFCAAB31B57FA3F007A2DE8 /* Frameworks */,
 				1CFCAAB41B57FA3F007A2DE8 /* Resources */,
+				DC76DA9727042F1320E8352C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +451,7 @@
 			files = (
 				1CFCAAC51B57FA40007A2DE8 /* Main.storyboard in Resources */,
 				1CFCAACA1B57FA40007A2DE8 /* LaunchScreen.xib in Resources */,
+				1CEBBC3A1B58086A00733265 /* UserProfile.jpg in Resources */,
 				1CFCAAC71B57FA40007A2DE8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,19 +460,82 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CFCAAE01B57FC4A007A2DE8 /* UserProfile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7EAA8FBA768BA3D00BD6545A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC76DA9727042F1320E8352C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1CFCAAB21B57FA3F007A2DE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CFCAAC21B57FA40007A2DE8 /* ViewController.m in Sources */,
+				1CA7A7241B667A5700660AA8 /* Utils.m in Sources */,
+				1CA7A7111B66761700660AA8 /* Room.m in Sources */,
+				1C2088061B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m in Sources */,
+				1C2087FC1B5D7EF0001DD96E /* SocketEngineClient.swift in Sources */,
+				1CA7A7271B667BBE00660AA8 /* RadialGradientLayer.m in Sources */,
+				1CA7A7091B6673CA00660AA8 /* SoundCloudAPI.m in Sources */,
+				1C2087FB1B5D7EF0001DD96E /* SocketEngine.swift in Sources */,
+				1CA7A7311B669DE300660AA8 /* MediaPickerViewController.m in Sources */,
+				1CA7A7211B667A4B00660AA8 /* GFXUtils.m in Sources */,
+				1C2087DF1B5D75E2001DD96E /* ExploreViewController.m in Sources */,
+				1CA7A72E1B667C4A00660AA8 /* MWLogging.m in Sources */,
+				1CEBBC371B5807BC00733265 /* HomeViewController.m in Sources */,
+				1C2087FD1B5D7EF0001DD96E /* SocketEventHandler.swift in Sources */,
+				1CA7A7151B66764800660AA8 /* Playlist.m in Sources */,
+				1CA7A72B1B667C1A00660AA8 /* Player.m in Sources */,
 				1CFCAABF1B57FA40007A2DE8 /* AppDelegate.m in Sources */,
+				1C2087FE1B5D7EF0001DD96E /* SocketFixUTF8.swift in Sources */,
+				1CA7A7381B66B4A100660AA8 /* PlaylistViewControllerViewController.m in Sources */,
+				1C2087FA1B5D7EF0001DD96E /* SocketAnyEvent.swift in Sources */,
+				1C2088031B5D7EF0001DD96E /* WebSocket.swift in Sources */,
 				1CFCAABC1B57FA3F007A2DE8 /* main.m in Sources */,
+				1C2088021B5D7EF0001DD96E /* SwiftRegex.swift in Sources */,
+				1C2088011B5D7EF0001DD96E /* SocketParser.swift in Sources */,
+				1CA7A7341B66A76E00660AA8 /* MediaItemTableViewCell.m in Sources */,
+				1C2087F91B5D7EF0001DD96E /* SocketAckMap.swift in Sources */,
+				1CA7A7081B6673CA00660AA8 /* SDSAPI.m in Sources */,
+				1C2087EC1B5D7D52001DD96E /* Ecstatic.m in Sources */,
+				1C2087E21B5D79D5001DD96E /* PlayerViewController.m in Sources */,
+				1C2088001B5D7EF0001DD96E /* SocketPacket.swift in Sources */,
+				1CA7A71A1B6679CC00660AA8 /* soundCloudMediaPickerViewController.m in Sources */,
+				1C2087FF1B5D7EF0001DD96E /* SocketIOClient.swift in Sources */,
+				1CA7A70D1B66751B00660AA8 /* MediaItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CFCAAD61B57FA40007A2DE8 /* EcstaticTests.m in Sources */,
+				1CFCAAE81B5800F4007A2DE8 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,21 +662,28 @@
 		};
 		1CFCAADA1B57FA40007A2DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D41BE654D41C34E3F44C18 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Ecstatic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ecstatic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1CFCAADB1B57FA40007A2DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCB782591FF943D8F4FFC436 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Ecstatic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ecstatic-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -418,6 +740,7 @@
 				1CFCAADB1B57FA40007A2DE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CFCAADC1B57FA40007A2DE8 /* Build configuration list for PBXNativeTarget "EcstaticTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +749,7 @@
 				1CFCAADE1B57FA40007A2DE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
