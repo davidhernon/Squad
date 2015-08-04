@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *track_title;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
+@property (weak, nonatomic) IBOutlet UIImageView *album_image;
 
 @end

@@ -52,7 +52,8 @@ static Player *ecstaticPlayer = nil;
 - (void) resetPlayer
 {
     [[Player sharedPlayer] joinRoom:0 withElapsedTime:0.0f andIsPlaying:0 isLocked:false];
-    
+    _currentTrack = nil;
+    [[Playlist sharedPlaylist] resetPlaylist];
     [self updatePlaylist];
     
     [[Playlist sharedPlaylist] reloadPlayer];
@@ -73,7 +74,7 @@ the delegate to Player for Player to communicate with a view controller
  */
 - (void) addDelegate:(id)sender
 {
-//    _delegate = sender;
+    _delegate = sender;
 }
 
 /**
@@ -124,12 +125,13 @@ the delegate to Player for Player to communicate with a view controller
     }
     
     [self callNextSong];
+    [_avPlayer play];
     
 }
 
 - (void)updatePlayerStateAndUIWithNewSong
 {
-//    [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
+    [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     _player_is_paused = NO;
 }
@@ -138,10 +140,6 @@ the delegate to Player for Player to communicate with a view controller
 {
 //	Mixpanel *mixpanel = [Mixpanel sharedInstance];
 //	[mixpanel track:@"played_song"];
-
-    //set up the UI in advance to display album art while song is buffering
-//    [_delegate playerIsLoadingNextSong];
-//    [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
    
@@ -152,24 +150,6 @@ the delegate to Player for Player to communicate with a view controller
 //    if(_currentTrack.is_event_mix && _currentTrack.is_local_item)
     if(_currentTrack.is_local_item)
     {
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//
-//        NSString *documentsPath = [paths objectAtIndex:0];
-//        
-//        NSFileManager *manager = [[NSFileManager alloc] init];
-//        NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
-//        
-//        
-//        //Get the url for the absolute file path
-//        for (NSString *filename in fileEnumerator) {
-//            NSString *trackname = [NSString stringWithFormat:@"%@.%@",_currentTrack.sc_id,_currentTrack.original_format];
-//            if([filename isEqualToString:trackname]){
-//                NSLog(@"we found a matching track");
-//                NSString *absolute_path_file = [NSString stringWithFormat:@"%@/%@",documentsPath,trackname];
-//                url = [NSURL fileURLWithPath:absolute_path_file];
-//                break;
-//            }
-//        }
         url = [NSURL fileURLWithPath:_currentTrack.local_file_path];
         //load the url into an asset and init the avplayer with it
         AVAsset *asset = [AVAsset assetWithURL:url];
@@ -183,14 +163,7 @@ the delegate to Player for Player to communicate with a view controller
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
-    [_avPlayer play];
     [self updatePlayerStateAndUIWithNewSong];
-	
-	//if you just created the room
-	if([SDSAPI getCreateRoomBool]){
-		[SDSAPI setCreateRoomBool:false];
-		[SDSAPI realtimePlayer:@"play"];
-	}
 }
 
 /**
@@ -204,7 +177,7 @@ the delegate to Player for Player to communicate with a view controller
  */
 -(void)updateTime
 {
-//    [_delegate setCurrentSliderValue:_avPlayer];
+    [_delegate setCurrentSliderValue:_avPlayer];
 //    [_delegate playerIsDoneLoadingNextSong];
 }
 
@@ -222,14 +195,6 @@ the delegate to Player for Player to communicate with a view controller
  */
 - (void)audioPlayerDidFinishPlaying
 {
-//    NSError *error;
-//    if ([[NSFileManager defaultManager] fileExistsAtPath:_currentTrack.local_file_path])     //Does file exist?
-//    {
-//        if (![[NSFileManager defaultManager] removeItemAtPath:_currentTrack.local_file_path error:&error])   //Delete it
-//        {
-//            NSLog(@"Delete file error: %@", error);
-//        }
-//    }
     
     if(_currentTrackIndex == [[Playlist sharedPlaylist] count] - 1)
     {
@@ -315,20 +280,44 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void) reloadUI
 {
-//    [_delegate redrawUI];
+    [_delegate redrawUI];
+}
+
+- (void) joinRoom:(NSDictionary*)channel
+{
+    NSDictionary *player_state = [channel objectForKey:@"player_state"];
+    [[Playlist sharedPlaylist] initWithArray:[player_state objectForKey:@"playlist"]];
+    
+    NSNumber *current_time_from_server = (NSNumber*)[channel objectForKey:@"current_time"];
+    NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
+    NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
+    
+    int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
+    int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
+    BOOL playing = (BOOL)[player_state objectForKey:@"is_playing"];
+//    BOOL isLocked = [[player_state objectForKey:@"is_locked"] intValue];
+    
+    //convert into floats
+    double ctfs = [current_time_from_server doubleValue];
+    double st = [server_timestamp doubleValue];
+    double et = [elapsed_time doubleValue];
+    double el;
+    
+    //if it was paused while player_state sitting on server
+    if(is_playing == 0){
+        el = (double)(1000.0*et);
+    }
+    //if it was playing while player_state sat on server
+    else{
+        el = ctfs - st + (double)(1.0*et);
+    }
+    
+    [self joinRoom:song_index withElapsedTime:el andIsPlaying:playing isLocked:YES];
 }
 
 //Sets up the player (elapsed time is in milli)
-- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked
+- (void) joinRoom:(int)index withElapsedTime:(double)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked
 {
-	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-
-    //if we were just told that the room is locked, and we don't own the room, then lock the room
-    if(isLocked && ![username isEqual:[Room currentRoom].host_username]){
-        [[Player sharedPlayer] setLock:isLocked];
-        
-    }
-
 	//if the player is empty or the playlist is empty, return
     if([Playlist sharedPlaylist].playlist.count == 0){
         if([self isPlaying]){
@@ -340,12 +329,15 @@ the delegate to Player for Player to communicate with a view controller
     }
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
+    [self callNextSong];
     [self seek:(elapsed)];
-//    [_delegate setCurrentSliderValue:_avPlayer];
+    [_delegate setCurrentSliderValue:_avPlayer];
     [self reloadUI];
     _user_joining_room = YES;
 	if(is_playing){
-		[self play];
+//		[self play];
+        [_avPlayer play];
+        [self seek:(elapsed)];
 	}
 	else{
 		[self pause];

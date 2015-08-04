@@ -38,12 +38,16 @@
     
     MediaItem *item_at_current_index = [[Playlist sharedPlaylist].playlist objectAtIndex:indexPath.row];
     
-    NSString *track_title = item_at_current_index.track_title;
-    cell.track_title.text = track_title;
-    
-    
+    cell.track_title.text = item_at_current_index.track_title;
+    cell.artist.text = item_at_current_index.artist;
+    cell.album_image.image = item_at_current_index.artwork;
     return cell;
     
+}
+
+- (void) redrawUI
+{
+    [_playlistTableView reloadData];
 }
 
 /*

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Playlist.h"
 #import "MediaItemTableViewCell.h"
+#import "PlaylistDelegate.h"
 
-@interface PlaylistViewControllerViewController : UIViewController
+@interface PlaylistViewControllerViewController : UIViewController <PlaylistDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *playlistTableView;
 
 @end

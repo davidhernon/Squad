@@ -15,7 +15,7 @@
 #import "SoundcloudAPI.h"
 #import "Player.h"
 
-@interface MediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *addSongsToPlaylist;
 @property (weak, nonatomic) IBOutlet UIButton *closeMediaPickerButton;
@@ -28,6 +28,10 @@
 @property (strong, nonatomic) NSArray *tracksFromSoundCloud;
 @property (strong, nonatomic) NSMutableArray *soundCloudAlbumImages;
 @property (strong, nonatomic) NSArray *soundCloudAlbumUrls;
+
+@property (weak, nonatomic) IBOutlet UITextField *search_textfield;
+@property (weak, nonatomic) IBOutlet UITextField *channel_title_textfield;
+
 
 @property BOOL returned;
 

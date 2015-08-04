@@ -1,0 +1,27 @@
+PODS:
+  - CocoaSoundCloudAPI (1.0.1):
+    - NXOAuth2Client (= 1.2.1)
+  - CocoaSoundCloudUI (1.0.5):
+    - CocoaSoundCloudAPI (~> 1.0.1)
+    - JSONKit
+    - OHAttributedLabel
+  - JSONKit (1.4)
+  - Mixpanel (2.8.2):
+    - Mixpanel/Mixpanel (= 2.8.2)
+  - NXOAuth2Client (1.2.1)
+  - OHAttributedLabel (3.5.5)
+
+DEPENDENCIES:
+  - CocoaSoundCloudAPI (= 1.0.1)
+  - CocoaSoundCloudUI (= 1.0.5)
+  - Mixpanel
+
+SPEC CHECKSUMS:
+  CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
+  CocoaSoundCloudUI: 4deb5ffe558d0b60d0aaeaf2420dda7aa31cb239
+  JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
+  Mixpanel: f4d71ac2a306e7cda6ad03d4a2be249a0fd7a967
+  NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68
+  OHAttributedLabel: 9b2eb99323dee6b3a81ef3bc8e98b084117bca2d
+
+COCOAPODS: 0.37.1

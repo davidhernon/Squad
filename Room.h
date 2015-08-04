@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "Playlist.h"
 #import "MWLogging.h"
+#import "Ecstatic.h"
 
 @class Player;
 
@@ -26,6 +27,8 @@
 @property (retain, nonatomic) NSString* room_number;
 @property BOOL is_owner;
 @property BOOL is_event;
+
+@property NSString *room_name;
 
 -(int)getNumberOfListenersInRoom;
 + (Room*)currentRoom;

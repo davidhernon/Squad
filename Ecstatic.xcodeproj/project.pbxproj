@@ -22,6 +22,7 @@
 		1C2088021B5D7EF0001DD96E /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F71B5D7EF0001DD96E /* SwiftRegex.swift */; };
 		1C2088031B5D7EF0001DD96E /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2087F81B5D7EF0001DD96E /* WebSocket.swift */; };
 		1C2088061B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2088051B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m */; };
+		1C6405841B6C130F0069AE17 /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6405831B6C130F0069AE17 /* Channels.m */; };
 		1CA7A7081B6673CA00660AA8 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7051B6673CA00660AA8 /* SDSAPI.m */; };
 		1CA7A7091B6673CA00660AA8 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A7071B6673CA00660AA8 /* SoundCloudAPI.m */; };
 		1CA7A70D1B66751B00660AA8 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7A70C1B66751B00660AA8 /* MediaItem.m */; };
@@ -80,6 +81,9 @@
 		1C2087F81B5D7EF0001DD96E /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		1C2088041B5D84EB001DD96E /* RoomsAroundMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsAroundMeTableViewCell.h; sourceTree = "<group>"; };
 		1C2088051B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsAroundMeTableViewCell.m; sourceTree = "<group>"; };
+		1C6405821B6C130F0069AE17 /* Channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channels.h; sourceTree = "<group>"; };
+		1C6405831B6C130F0069AE17 /* Channels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channels.m; sourceTree = "<group>"; };
+		1C6D5DB61B6D2ABA004D4B52 /* PlaylistDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaylistDelegate.h; sourceTree = "<group>"; };
 		1CA7A7041B6673CA00660AA8 /* SDSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSAPI.h; sourceTree = "<group>"; };
 		1CA7A7051B6673CA00660AA8 /* SDSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSAPI.m; sourceTree = "<group>"; };
 		1CA7A7061B6673CA00660AA8 /* SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudAPI.h; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				1CA7A7141B66764800660AA8 /* Playlist.m */,
 				1CA7A7361B66B4A100660AA8 /* PlaylistViewControllerViewController.h */,
 				1CA7A7371B66B4A100660AA8 /* PlaylistViewControllerViewController.m */,
+				1C6D5DB61B6D2ABA004D4B52 /* PlaylistDelegate.h */,
 			);
 			name = Playlist;
 			sourceTree = "<group>";
@@ -327,10 +332,10 @@
 			isa = PBXGroup;
 			children = (
 				1C2087E31B5D7BE8001DD96E /* API */,
+				1CA7A7121B66762F00660AA8 /* Playlist */,
 				1CA7A7281B667C0A00660AA8 /* Player */,
 				1CA7A71B1B6679F300660AA8 /* Utils */,
 				1CA7A7171B66797400660AA8 /* MediaPicker */,
-				1CA7A7121B66762F00660AA8 /* Playlist */,
 				1CA7A70E1B6675FE00660AA8 /* Room */,
 				1CA7A70A1B66750300660AA8 /* MediaItem */,
 				1CFCAAE41B5800BB007A2DE8 /* Home */,
@@ -346,6 +351,8 @@
 				1C2087DE1B5D75E2001DD96E /* ExploreViewController.m */,
 				1C2088041B5D84EB001DD96E /* RoomsAroundMeTableViewCell.h */,
 				1C2088051B5D84EB001DD96E /* RoomsAroundMeTableViewCell.m */,
+				1C6405821B6C130F0069AE17 /* Channels.h */,
+				1C6405831B6C130F0069AE17 /* Channels.m */,
 			);
 			name = Channels;
 			sourceTree = "<group>";
@@ -516,6 +523,7 @@
 				1C2087DF1B5D75E2001DD96E /* ExploreViewController.m in Sources */,
 				1CA7A72E1B667C4A00660AA8 /* MWLogging.m in Sources */,
 				1CEBBC371B5807BC00733265 /* HomeViewController.m in Sources */,
+				1C6405841B6C130F0069AE17 /* Channels.m in Sources */,
 				1C2087FD1B5D7EF0001DD96E /* SocketEventHandler.swift in Sources */,
 				1CA7A7151B66764800660AA8 /* Playlist.m in Sources */,
 				1CA7A72B1B667C1A00660AA8 /* Player.m in Sources */,
@@ -667,6 +675,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Ecstatic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ecstatic-Bridging-Header.h";
@@ -681,6 +690,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Ecstatic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ecstatic-Bridging-Header.h";

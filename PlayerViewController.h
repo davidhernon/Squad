@@ -15,5 +15,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *track_title;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UILabel *current_duration;
+@property (weak, nonatomic) IBOutlet UILabel *current_time;
+@property (weak, nonatomic) IBOutlet UIImageView *album_image;
+@property (weak, nonatomic) IBOutlet UILabel *channel_title;
 
 @end

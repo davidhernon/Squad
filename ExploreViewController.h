@@ -10,6 +10,7 @@
 #import "RoomsAroundMeTableViewCell.h"
 #import "Ecstatic.h"
 #import "Player.h"
+#import "Channels.h"
 
 @interface ExploreViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *player_button;
 
 - (void)showRoomsAroundMe:(NSArray*)room_dictionaries;
+- (void) ack;
 
 @end

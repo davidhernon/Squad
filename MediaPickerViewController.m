@@ -16,33 +16,15 @@
 
 NSString *cellIdentifier = @"room_around_me_table_view_cell";
 
-//- (id) initWithArray:(NSArray*)tracks
-//{
-//
-//    self = [super init];
-//    if(self){
-//        self.tracksFromSoundCloud = tracks;
-//    }
-//
-//    return self;
-//}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     [self getSDSEventTracks];
-    
-    //hide add button
-//    _addSongsToPlaylist.hidden = YES;
-//    _sCMediaPickerSpinner.hidden = NO;
-    
-    // Transparency
+    _channel_title_textfield.delegate = self;
+    _search_textfield.delegate = self;
     
     _soundCloudResultsTableView.backgroundColor = [UIColor clearColor];
-    
-    // Add the gradient to the view
-//    [self.view.layer insertSublayer:[GFXUtils getGradientMediaPicker:(CGRect)self.view.bounds] atIndex:0];
     
     
     // Remove line between cells
@@ -62,46 +44,15 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    
-    //used to hold highlighting when switching between pickers
-    // starts on favorites as we show the users favorites first
-    
-    
-    // Load images and start animating spinner
-//    NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
-//                            @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png", @"spinner-17.png", @"spinner-18.png", @"spinner-19.png", @"spinner-20.png", @"spinner-21.png", @"spinner-22.png", @"spinner-23.png", @"spinner-24.png", @"spinner-25.png", @"spinner-26.png", @"spinner-27.png", @"spinner-28.png", @"spinner-29.png", @"spinner-30.png", @"spinner-0.png"];
-//    
-//    NSMutableArray *images = [[NSMutableArray alloc] init];
-//    for (int i = 0; i < imageNames.count; i++) {
-//        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
-//    }
-//    
-//    
-//    _sCMediaPickerSpinner.animationImages = images;
-//    _sCMediaPickerSpinner.animationDuration = 0.5;
-//    [_sCMediaPickerSpinner startAnimating];
-    
-    
-//    if([SCSoundCloud account] == nil)
-//    {
-//        _connect_to_soundcloud.hidden = NO;
-//        _sCMediaPickerSpinner.hidden = YES;
-//    }else{
-//        _connect_to_soundcloud.hidden = YES;
-//        _soundcloudLoginButton.hidden = YES;
-//        _sCMediaPickerSpinner.hidden = NO;
-//    }
-    //    _tracksFromSoundCloud = nil;
-    //    [SoundCloudAPI getFavorites:self];
-    //
-    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    //        while(_tracksFromSoundCloud == nil){
-    //            [NSThread sleepForTimeInterval:0.1f];
-    //        }
-    //    });
+    self.selectedTracks = [[NSMutableArray alloc] init];
     
     //Get the album images
-//    [self getAlbumImageArray];
+    [self getAlbumImageArray];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     
 }
 
@@ -116,7 +67,6 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    MWLogDebug(@"soundCloudMediaPicker - soundCloudMediaPickerViewController - tablveView:numberOfRowsInSection - returning row count: %i", self.tracksFromSoundCloud.count);
     return self.tracksFromSoundCloud.count;
 }
 
@@ -139,16 +89,10 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     tableView.backgroundColor = [UIColor clearColor];
     NSString *title = [track objectForKey:@"title"];
     cell.track_title.text = title;
-//    cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
-//    cell.duration.text = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
-    
-//    //remove spinner
-//    _addSongsToPlaylist.hidden = NO;
-//    _sCMediaPickerSpinner.hidden = YES;
     
     if(indexPath.row < [_soundCloudAlbumImages count])
     {
-//        cell.sc_album_image.image = [_soundCloudAlbumImages objectAtIndex:indexPath.row];
+        cell.album_image.image = [_soundCloudAlbumImages objectAtIndex:indexPath.row];
     }
     
     cell.backgroundColor = [UIColor clearColor];
@@ -172,28 +116,6 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     
     
 }
-
-//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Add your Colour.
-//    MediaItemTableViewCell *cell = (MediaItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-//    [self setCellColor:[UIColor whiteColor] ForCell:cell];  //highlight colour
-//}
-//
-//- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Reset Colour.
-//    MediaItemTableViewCell *cell = (MediaItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-//    [self setCellColor:[UIColor clearColor] ForCell:cell]; //normal color
-//
-//}
-//
-//- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
-//    cell.contentView.backgroundColor = color;
-//    cell.backgroundColor = color;
-//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -220,6 +142,36 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     //    [self printSelectedTracks];
     
 }
+
+
+/*********/ // TEXT FIELD METHODS
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    NSString *channel_name = _channel_title_textfield.text;
+    NSString *soundcloud_search_string = _search_textfield.text;
+    
+    return YES;
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+    return YES;
+}
+
+-(void)dismissKeyboard {
+    [_search_textfield resignFirstResponder];
+    [_channel_title_textfield resignFirstResponder];
+}
+
+/*********/ // END OF TEXT FIELD METHODS
 
 -(void) addSoundCloudFavorites:(NSArray*)tracks
 {
@@ -299,14 +251,14 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     }
 }
 
--(IBAction)addSelectedTracksToPlaylist:(id)sender
-{
-    [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
-    for(MediaItem* item in self.selectedTracks)
-    {
-        [SDSAPI sendMediaItemToServer:item];
-    }
-}
+//-(IBAction)addSelectedTracksToPlaylist:(id)sender
+//{
+//    [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
+//    for(MediaItem* item in self.selectedTracks)
+//    {
+//        [Ecstatic addSong:[item serializeMediaItem]];
+//    }
+//}
 
 -(void) getAlbumImageArray
 {
@@ -338,57 +290,6 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
 }
 
 
-// The close button
-//-(IBAction)closeMediaPicker:(id)sender
-//{
-//	if([Playlist sharedPlaylist].count > 0){
-//		[self dismissViewControllerAnimated:YES completion:nil];
-//	}
-//	else{
-//		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//		RoomsViewController *aroundMe = [sb instantiateViewControllerWithIdentifier:@"aroundMe"];
-//		[self presentViewController:aroundMe animated:NO completion:nil];
-//	}
-//}
-
-//-(IBAction)soundcloudLogin:(id)sender
-//{
-//    MWLogDebug(@"soundCloudMediaPicker - soundCloudMediaPickerViewController - soundCloudLogin - logging into soundcloud");
-//
-//    [SoundCloudAPI login:self];
-//
-//
-//
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                while([SCSoundCloud account] == nil)
-//                {
-//                    [NSThread sleepForTimeInterval:0.1f];
-//                }
-////        [SoundCloudAPI getFavorites:self];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self getFaves];
-//        });
-//
-//    });
-//
-//}
-
-//-(IBAction)showSearchSoundCloudUI:(id)sender
-//{
-//    // May break if there is more than one UIView in the NIB
-//
-//    ILTranslucentView *search_soundcloud = [[[NSBundle mainBundle] loadNibNamed:@"SoundCloudSearchView" owner:self options:nil] objectAtIndex:0];
-//    search_soundcloud.translucentAlpha = 0;
-//    search_soundcloud.translucentStyle = UIBarStyleDefault;
-//    search_soundcloud.translucentTintColor = [UIColor clearColor];
-//    search_soundcloud.backgroundColor = [UIColor clearColor];
-//
-//    [search_soundcloud addSender:self];
-//
-//    [self.view addSubview:search_soundcloud];
-//
-//    _soundCloudResultsTableView.hidden = YES;
-//}
 
 -(void)searchSoundcloud:(NSString*)search_text
 {
@@ -427,21 +328,34 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     [SoundCloudAPI getSDSPlaylistsFromSoundCloud:self];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 - (IBAction)addSongsAction:(id)sender {
-    [self addSelectedTracksToPlaylist:self];
-    [[Player sharedPlayer] play];
+    
+    if(self.selectedTracks.count == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Tracks Selected"
+                                                        message:@"Select a track or hit Cancel to browse other Channels"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:@"Cancel", nil];
+        [alert show];
+        return;
+    }
+
+    [Ecstatic addSongsToQueue:self.selectedTracks];
+    
+    //create room with channel title set by user:
+    [Ecstatic createRoom:_channel_title_textfield.text];
+
     [self performSegueWithIdentifier:@"mediaPickerToPlayer" sender:self];
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        //
+    }
+    else if (buttonIndex == 1) {
+        [self performSegueWithIdentifier:@"mediaPickerToExplore" sender:self];
+    }
 }
 
 

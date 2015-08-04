@@ -55,20 +55,22 @@ static Room *currentRoom = nil;
 }
 
 // init with dict from django portion of site
-- (void) initWithDict:(NSDictionary *)room_info
+- (void) initWithDict:(NSDictionary *)channel
 {
-    MWLogDebug(@"Rooms - Room - initWithDict: - initializing room with a dict");
-    if(!currentRoom)
-        [Room currentRoom];
-    currentRoom.title.text = [room_info objectForKey:@"room_name"];
-    currentRoom.room_number = [room_info objectForKey:@"room_number"];
-    currentRoom.host_username = [room_info objectForKey:@"host_username"];
-    currentRoom.other_listeners = [room_info objectForKey:@"number_of_users"];
-	NSString* usr = [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-	if([usr isEqualToString:currentRoom.host_username]){
-		[self makeOwner];
-	}
-    NSLog(@"room number: %@", currentRoom.room_number);
+//    MWLogDebug(@"Rooms - Room - initWithDict: - initializing room with a dict");
+//    if(!currentRoom)
+//        [Room currentRoom];
+//    currentRoom.title.text = [room_info objectForKey:@"room_name"];
+//    currentRoom.room_number = [room_info objectForKey:@"room_number"];
+//    currentRoom.host_username = [room_info objectForKey:@"host_username"];
+//    currentRoom.other_listeners = [room_info objectForKey:@"number_of_users"];
+//	NSString* usr = [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+//	if([usr isEqualToString:currentRoom.host_username]){
+//		[self makeOwner];
+//	}
+//    NSLog(@"room number: %@", currentRoom.room_number);
+//    NSDictionary *player_state = [[Ecstatic getSocketInfoAsDict:[channel objectForKey:@"socket_info"]] objectForKey:@"player_state"];
+    currentRoom.room_name = [channel objectForKey:@"room_name"];
 }
 
 /**

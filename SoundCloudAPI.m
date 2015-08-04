@@ -194,7 +194,7 @@
             [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
             // reload table data?
             [sender.soundCloudResultsTableView reloadData];
-//            [sender getAlbumImageArray];
+            [sender getAlbumImageArray];
         }
         else {
             

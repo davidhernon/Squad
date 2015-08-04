@@ -28,7 +28,7 @@
 @property BOOL user_hit_button;
 
 
-//@property (nonatomic, weak) id<PlayerDelegate> delegate;
+@property (nonatomic, weak) id<PlayerDelegate> delegate;
 
 +(Player*) sharedPlayer;
 -(void)play;
@@ -41,10 +41,11 @@
 -(void)seek:(float)value;
 -(BOOL)isPlaying;
 -(void) reloadUI;
-- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked;
+- (void) joinRoom:(int)index withElapsedTime:(double)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked;
 -(void)setLock:(BOOL)player_is_locked;
 -(void) deleteSongWithDict:(NSDictionary*)remove_song_dict;
 - (void) resetPlayer;
+- (void) joinRoom:(NSDictionary*)channel;
 
 @end
 

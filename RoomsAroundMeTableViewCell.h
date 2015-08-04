@@ -10,6 +10,7 @@
 
 @interface RoomsAroundMeTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) NSString *room_title;
+@property (weak, nonatomic) IBOutlet UILabel *channel_title;
+@property (weak, nonatomic) NSDictionary *channel_info;
 
 @end

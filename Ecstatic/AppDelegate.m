@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SDSAPI.h"
+#import "Ecstatic.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [SDSAPI connect];
+    [Ecstatic initializeSocket];
     return YES;
 }
 

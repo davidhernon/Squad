@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "MediaItem.h"
+#import "PlaylistDelegate.h"
 @class Player;
 
 @interface Playlist : NSObject
+
+@property (nonatomic, weak) id<PlaylistDelegate> delegate;
 
 @property NSMutableArray* playlist;
 + (Playlist*) sharedPlaylist;
@@ -24,5 +27,7 @@
 - (void) reloadPlayer;
 -(void) clearPlaylist;
 - (void) removeLocalSongById:(NSString*)track_id;
+-(void)resetPlaylist;
+- (void) initWithArray:(NSArray*)playlist;
 
 @end

@@ -51,6 +51,20 @@ static Playlist *sharedPlaylist = nil;
     }
 }
 
+- (void) initWithArray:(NSArray*)playlist
+{
+    sharedPlaylist.playlist = [[NSMutableArray alloc] init];
+    
+    if([playlist count] == 0)
+        return;
+    
+    for(NSDictionary *song_dict in playlist)
+    {
+        MediaItem *song = [[MediaItem alloc] initWIthDict:song_dict];
+        [self addTrack:song];
+    }
+}
+
 -(void)clearPlaylist
 {
     sharedPlaylist. playlist = [[NSMutableArray alloc] init];
@@ -60,13 +74,15 @@ static Playlist *sharedPlaylist = nil;
 - (void) addTrack:(MediaItem *)song
 {
     [self.playlist addObject:song];
+    //if the playlist has one song (i.e. we just added the first song to playlist) then play
+    //this will eventually init the player UI!
 }
 
-- (void) addTracks:(NSMutableArray*)songsToAdd
-{
-    [self.playlist addObjectsFromArray:songsToAdd];
-    [[Player sharedPlayer] updatePlaylist];
-}
+//- (void) addTracks:(NSMutableArray*)songsToAdd
+//{
+//    [self.playlist addObjectsFromArray:songsToAdd];
+//    [[Player sharedPlayer] updatePlaylist];
+//}
 
 -(void) removeTrack:(MediaItem*)song
 {
@@ -85,6 +101,7 @@ static Playlist *sharedPlaylist = nil;
 
 - (void) reloadPlayer
 {
+    [_delegate redrawUI];
     [[Player sharedPlayer] reloadUI];
 }
 
@@ -100,6 +117,11 @@ static Playlist *sharedPlaylist = nil;
             [track makeNotLocalTrack];
         }
     }
+}
+
+- (void) resetPlaylist
+{
+    _playlist = [[NSMutableArray alloc] init];
 }
 
 @end

@@ -19,6 +19,7 @@ static bool createRoomBool;
     
     [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"connected");
+        [SDSAPI user_connect];
     }];
     
     [static_socket on: @"return_post_location" callback: ^(NSArray* data, void (^ack)(NSArray*)){
@@ -298,59 +299,59 @@ static bool createRoomBool;
     
 }
 
-+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_username isEvent:(BOOL)isEvent withTrack:(MediaItem*)event_track
-{
-    
-    //TEST if(event_track) then also isEvent
- 
-    // In Order to join a room we start by removing ourself from the old room
-    [SDSAPI leaveRoom];
-    
-    //If the event is a Room, set the current Room variable
+//+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_username isEvent:(BOOL)isEvent withTrack:(MediaItem*)event_track
+//{
+//    
+//    //TEST if(event_track) then also isEvent
+// 
+//    // In Order to join a room we start by removing ourself from the old room
+//    [SDSAPI leaveRoom];
+//    
+//    //If the event is a Room, set the current Room variable
+////    [Room currentRoom].is_event = isEvent;
+//    
+//    //set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
+//    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+//    NSString *current_room_number_as_string = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number]; //rn
+//    NSString *is_event_string = isEvent ? @"true" : @"false";
+//    
+//    //set up the dictionaries to send to server
+//    NSMutableDictionary *joinDict  = [NSMutableDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
+//    
+//    if(event_track)
+//    {
+//        //spoofing username so we get the playlist properly
+//        NSMutableDictionary *media_item = [[NSMutableDictionary alloc] init];
+//        media_item = [NSMutableDictionary dictionaryWithDictionary:[event_track serializeMediaItem]];
+//        [media_item setObject:@"" forKey:@"username"];
+//        
+//        //add the item to the event
+//        [joinDict setValue:media_item forKey:@"media_item"];
+//    }
+//    
+//    //serialize the Dict
+//    NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
+//    //send join and leave messages
+//    [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
+//    
+//    //update the currentRoom's state
+//    [Room currentRoom].room_number = new_room_number;
 //    [Room currentRoom].is_event = isEvent;
-    
-    //set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSString *current_room_number_as_string = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number]; //rn
-    NSString *is_event_string = isEvent ? @"true" : @"false";
-    
-    //set up the dictionaries to send to server
-    NSMutableDictionary *joinDict  = [NSMutableDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
-    
-    if(event_track)
-    {
-        //spoofing username so we get the playlist properly
-        NSMutableDictionary *media_item = [[NSMutableDictionary alloc] init];
-        media_item = [NSMutableDictionary dictionaryWithDictionary:[event_track serializeMediaItem]];
-        [media_item setObject:@"" forKey:@"username"];
-        
-        //add the item to the event
-        [joinDict setValue:media_item forKey:@"media_item"];
-    }
-    
-    //serialize the Dict
-    NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
-    //send join and leave messages
-    [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
-    
-    //update the currentRoom's state
-    [Room currentRoom].room_number = new_room_number;
-    [Room currentRoom].is_event = isEvent;
-    
-    if([username isEqualToString:host_username]){
-        [[Room currentRoom] makeOwner];
-    }
-    else{
-        [[Room currentRoom] makeNotOwner];
-    }
-    
-    [Room currentRoom].host_username = host_username;
-    
-    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[new_room_number] forKeys:@[@"room_number"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
-    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
-    
-}
+//    
+//    if([username isEqualToString:host_username]){
+//        [[Room currentRoom] makeOwner];
+//    }
+//    else{
+//        [[Room currentRoom] makeNotOwner];
+//    }
+//    
+//    [Room currentRoom].host_username = host_username;
+//    
+//    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[new_room_number] forKeys:@[@"room_number"]];
+//    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
+//    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
+//    
+//}
 
 
 
@@ -445,7 +446,8 @@ static bool createRoomBool;
 
 +(void)user_connect
 {
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *username = [NSString stringWithFormat:@"%i",rand()];
+    [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
     NSDictionary *connectDict  = [NSDictionary dictionaryWithObjects:@[ username ] forKeys:@[ @"username"]];
     NSData *connectJson = [NSJSONSerialization dataWithJSONObject:connectDict options:nil error:nil];
     [static_socket emitObjc:@"connect" withItems:@[connectJson]];

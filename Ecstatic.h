@@ -7,10 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SDSAPI.h"
+#import "Channels.h"
+#import "Playlist.h"
+#import "Room.h"
+
+@class MediaItem;
+@class SocketIOClient;
 
 @interface Ecstatic : NSObject
 
-+(void) getRoomsAroundMe:(id)sender;
++ (void) initializeSocket;
++ (void) createRoom:(NSString *)room_title;
++ (void) getRooms;
++ (void) join_room:(NSString*)room_id;
++ (void) users:(NSString*)room_id;
++ (void) addSong:(NSDictionary*)serializedMediaItem;
++ (void) addSongsToQueue:(NSArray*)songs;
++ (void) addSongsFromQueue;
++ (NSDictionary*) getSocketInfoAsDict:(NSString*)dict;
 
 @end
