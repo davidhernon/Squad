@@ -156,7 +156,7 @@
     //when we get the response reload soundCloudMediaPicker
     NSString *search = [search_text stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
-    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/me/tracks?q=%@&format=json", search]] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/tracks?client_id=230ccb26b40f7c87eb65fc03357ffa81&q=%@&format=json", search]] usingParameters:nil withAccount:nil sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         NSError *jsonError;
         NSJSONSerialization *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];

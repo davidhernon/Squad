@@ -21,8 +21,12 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     [super viewDidLoad];
     
     [self getSDSEventTracks];
+    
+    // Add delegates and tags to the text fields
     _channel_title_textfield.delegate = self;
+    _channel_title_textfield.tag = 1;
     _search_textfield.delegate = self;
+    _search_textfield.tag = 2;
     
     _soundCloudResultsTableView.backgroundColor = [UIColor clearColor];
     
@@ -166,6 +170,19 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
     return YES;
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+
+    if(textField.tag == 1)
+    {
+        
+    }else if(textField.tag == 2)
+    {
+            NSLog(@"Search");
+        [self searchSoundcloud:textField.text];
+    }
+}
+
 -(void)dismissKeyboard {
     [_search_textfield resignFirstResponder];
     [_channel_title_textfield resignFirstResponder];
@@ -293,13 +310,13 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
 
 -(void)searchSoundcloud:(NSString*)search_text
 {
-    //SWITCH switch from _old_list to search
+//    SWITCH switch from _old_list to search
     
-//    [self changeSelectedListWithString:@"search" from:_current_media_picker_type];
-//    
-//    [SoundCloudAPI searchSoundCloud:search_text withSender:self];
-//    //    [self viewDidLoad];
-//    [self viewWillAppear:YES];
+    [self changeSelectedListWithString:@"search" from:_current_media_picker_type];
+    
+    [SoundCloudAPI searchSoundCloud:search_text withSender:self];
+    //    [self viewDidLoad];
+    [self viewWillAppear:YES];
 }
 
 -(void)updateTable
@@ -339,6 +356,18 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
         [alert show];
         return;
     }
+    
+    if([_channel_title_textfield.text isEqualToString:@"Channel Title"] ||
+            [_channel_title_textfield.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Channel Title Isn't Set"
+                                                        message:@"Type in a different channel title and try again."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
 
     [Ecstatic addSongsToQueue:self.selectedTracks];
     
@@ -357,6 +386,8 @@ NSString *cellIdentifier = @"room_around_me_table_view_cell";
         [self performSegueWithIdentifier:@"mediaPickerToExplore" sender:self];
     }
 }
+
+
 
 
 @end
